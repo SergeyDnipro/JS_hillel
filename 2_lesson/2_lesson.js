@@ -19,7 +19,9 @@ num += 5;
 num -= 2;
 num *= 2;
 
-++num; ++num; ++num;
+++num;
+++num;
+++num;
 
 console.log(num);
 
@@ -38,7 +40,15 @@ console.log(response);
 let x = parseInt(prompt('Введите x:'));
 let y = parseInt(prompt('Введите y:'));
 
-[x, y] = [y, x];
+x = x + y;
+y = x - y;
+x = x - y;
 
 console.log(`x = ${x}`);
 console.log(`y = ${y}`);
+
+
+if (x > y) {
+    x = x - (x - y);
+
+}
