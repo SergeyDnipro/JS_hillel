@@ -30,17 +30,15 @@ console.log(8 % 3);
 
 // Задача 4
 let age = parseInt(prompt('Введіть ваш вік:'));
-let response;
-
-response = age >= 18;
+let response = age >= 18;
 
 console.log(response);
 
 // Задача 5
-let x = +prompt('Введите x:');
-let y = +prompt('Введите y:');
+let x = parseInt(prompt('Введите x:'));
+let y = parseInt(prompt('Введите y:'));
 
 [x, y] = [y, x];
 
-console.log(x);
-console.log(y);
+console.log(`x = ${x}`);
+console.log(`y = ${y}`);
