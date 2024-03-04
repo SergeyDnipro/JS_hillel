@@ -16,23 +16,18 @@ function getMaxValue(number1, number2) {
 }
 
 // Задача 2
-function getPow(base, power) {
-    if (base === undefined || power === undefined) {
-        return 9;
-    }
+function getPow(base=3, power=2) {
     let result = 1;
     for (let i = 1; i <= power; i++) {
         result *= base;
     }
     return result;
 }
-console.log(getPow(2, 5));
+console.log(getPow(3, 3));
 
 // Задача 3
-function getSumOrConcatination(value1, value2) {
-    if (value1 === undefined || value2 === undefined) {
-        return 30;
-    } else if (typeof value1 === 'string' || typeof value2 === 'string') {
+function getSumOrConcatination(value1=30, value2 = 0) {
+    if (typeof value1 === 'string' || typeof value2 === 'string') {
         console.log(`Результат конкатенації: ${value1 + value2}`);
     } else if (typeof value1 === 'number' && typeof value2 === 'number') {
         console.log(`Результат суми: ${value1 + value2}`);
@@ -40,7 +35,7 @@ function getSumOrConcatination(value1, value2) {
         console.log("Некоректні аргументи");
     }
 }
-getSumOrConcatination(true, NaN);
+getSumOrConcatination();
 
 // Задача 4
 function getFibonachi(number) {
