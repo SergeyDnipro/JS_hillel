@@ -35,7 +35,6 @@ let myTopFilm = [
 
 myTopFilm.push('Boys');
 myTopFilm.unshift('Top Gear');
-
 console.log(myTopFilm);
 
 
@@ -46,6 +45,14 @@ let employee = {
 	position: "front-end developer",
 	level: "middle",
 };
+
+let employee2 = {
+	salary: 1500,
+	taxes: 150,
+	position: "project manager",
+	level: "junior",
+};
+
 // Збільшення на 2 всіх числових значень в об'єкті
 for (let i in employee) {
     if (typeof i === "number") {
@@ -57,17 +64,8 @@ employee.showInfo = function () {
     console.log(`"${this.level}" on position "${this.position}" заробляє ${this.salary - this.taxes}`);
 }
 
-employee.showInfo();
-
-let employee2 = {
-	salary: 1500,
-	taxes: 150,
-	position: "project manager",
-	level: "junior",
-};
-
 employee2.showInfo = employee.showInfo;
-
+employee.showInfo();
 employee2.showInfo();
 
 
