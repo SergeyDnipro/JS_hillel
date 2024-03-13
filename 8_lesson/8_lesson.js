@@ -68,6 +68,7 @@ let strings = [
 ];
 console.log(unique(strings));
 
+
 //  Задача 4
 function mostCommonDigit(digitArray) {
     let totalValuesObj = digitArray.reduce((newObj, element) => {
@@ -85,5 +86,4 @@ function mostCommonDigit(digitArray) {
     }
     return maxKey;
 }
-
 console.log(mostCommonDigit([12, 10, 8, 12, 7, 6, 4, 10, 12, 10, 10]));
