@@ -96,11 +96,11 @@ let cart = {
     // Рахуєм сумарну вартість всіх товарів.
     calculateTotalPrice() {
         let that = this.items;
-        let count = 0;
+        let totalSum = 0;
         for (let currentItem in that) {
-            count += that[currentItem].price * that[currentItem].quantity;
+            totalSum += that[currentItem].price * that[currentItem].quantity;
         }
-        console.log(count);
+        console.log(totalSum);
     },
     
     // Виводимо в консоль стан нашого кошика. 
