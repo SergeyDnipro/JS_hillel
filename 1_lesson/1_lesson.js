@@ -1,32 +1,24 @@
-// Задача 1
-let age = 40;
-let name = "Sergey";
+class Book {
+    constructor(name, author) {
+        this.name = name;
+        this.author = author;
+    }
+}
 
-console.log(age)
-console.log(name)
+class Library {
+    constructor() {
+        this.books = [];
+    }
 
-name = "Sergey Babich"
-console.log(name)
+    add(book) {
+        this.books.push(book);
+    }
 
-// Задача 2
-msg = "Мене звати " + name + ", мені " + age + " років."
-alert(msg)
-
-// Задача 3
-age = prompt('Скільки вам років: ')
-name = prompt('Ваше повне ім\'я та прізвище')
-
-msg = `Мене звати ${name}, мені ${age} років.`
-alert(msg)
-
-// Задача 4
-let number1, number2;
-number1 = parseInt(prompt('Введіть перше число'))
-number2 = parseInt(prompt('Введіть друге число'))
-
-let sum = number1 + number2
-let sub = number1 - number2
-let mul = number1 * number2
-let div = number1 / number2
-
-console.log(sum, sub, mul, div)
+    getBook(name) {
+        for (let book of this.books) {
+            if (book.name === name) {
+                return book;
+            }
+        }
+    }
+}
