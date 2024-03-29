@@ -134,10 +134,6 @@ function Triangle(a, b, c) {
     this.c = c;
 }
 
-// function getHalfPerimetr() {
-//     return (this.a + this.b + this.c) / 2;
-// }
-
 function getSquare() {
     let halfPerimetr = (this.a + this.b + this.c) / 2;
     let evalSquare = Math.sqrt(
@@ -153,7 +149,6 @@ function getSquare() {
     return evalSquare.toFixed(2);
 }
 
-// Triangle.prototype.getHalfPerimetr = getHalfPerimetr
 Triangle.prototype.getSquare = getSquare
 
 const triangle1 = new Triangle(5, 4, 3);
