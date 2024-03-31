@@ -99,9 +99,9 @@ class TodoList {
             this.#todos.splice(ind, 1);
             this.#show();
         } else if (this.#todos) {
-            console.log('No task in queue');
-        } else {
             console.log('Enter valid task name');
+        } else {
+            console.log('No task in queue');
         }
     }
 }
