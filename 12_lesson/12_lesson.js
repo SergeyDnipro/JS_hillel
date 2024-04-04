@@ -1,196 +1,196 @@
 'use strict';
 
 
-// Задача 1-1
-class Animal {
-    constructor(word) {
-        this.word = word;
-    }
-
-    say() {
-        console.log(this.word);
-    }
-}
-
-const dog = new Animal('Woof!');
-dog.say();
-
-
-// Задача 1-2
-class Car {
-    constructor(model, speed) {
-        this.model = model;
-        this.speed = speed;
-    }
-
-    ride() {
-        let msg = this.speed > 0
-            ? `${this.model} їде зі швидкістю ${this.speed} км/год`
-            : `${this.model} готов їхати. Натисніть педаль газу.`;
-        console.log(msg);
-    }
-
-    stop() {
-        this.speed = 0;
-        console.log(`${this.model} зупинився. Швидкість ${this.speed} км/год`);
-    }
-
-    gase() {
-        this.speed += 10;
-        console.log(`${this.model} їде зі швидкістю ${this.speed} км/год`);
-    }
-
-    brake() {
-        this.speed -= 10;
-        if (this.speed > 0) {
-            console.log(`${this.model} їде зі швидкістю ${this.speed} км/год`);
-        } else {
-            this.stop();
-        }
-    }
-}
-
-const bmw = new Car('BMW', 75);
-const ford = new Car('Ford', 35);
-
-ford.ride();
-ford.gase();
-ford.brake();
-ford.brake();
-ford.brake();
-ford.brake();
-ford.brake();
-ford.ride();
-ford.gase();
-ford.gase();
-ford.stop();
-
-bmw.ride();
-bmw.gase();
-bmw.brake();
-bmw.brake();
-bmw.brake();
-bmw.brake();
-bmw.brake();
-bmw.ride();
-bmw.gase();
-bmw.gase();
-bmw.stop();
-
-
-// Задача 1-3
-class TodoList {
-    #todos = []
-
-    #show() {
-        for (let i=1; i < this.#todos.length + 1; i++) {
-            console.log(`${i}. ${this.#todos[i - 1]}`);
-        }
-    }
-
-    addTask(task) {
-        this.#todos.push(task);
-        this.#show();
-    }
-
-    removeTask(task) {
-        if (this.#todos.includes(task)) {
-            let ind = this.#todos.indexOf(task);
-            this.#todos.splice(ind, 1);
-            this.#show();
-        } else if (this.#todos) {
-            console.log('Enter valid task name');
-        } else {
-            console.log('No task in queue');
-        }
-    }
-}
-
-const td = new TodoList();
-td.addTask('make homework');
-td.addTask('eat dinner');
-td.addTask('sleeping');
-td.removeTask('eat dinner');
-td.removeTask('make homework');
-td.removeTask('sleeping');
-td.removeTask('sleeping');
-
-
-// Задача 2
-class Vehicle {
-    #vehicleSpeed;
-    constructor(speed) {
-        this.speed = speed;
-        this.#vehicleSpeed = speed;
-        this.name = '';
-    }
-
-    ride() {
-        if (!this.speed) {
-            this.speed = this.#vehicleSpeed;
-            console.log(`${this.name} розпочинає рух. Набор швидкості до ${this.speed} км/год.`);
-        } else {
-            console.log(`${this.name} їде за швидкістю ${this.speed} км/год.`);
-        }
-    }
-
-    stop() {
-        this.speed = 0;
-        console.log(`Стоїть. Швидкість ${this.speed} км/год.`)
-    }
-}
-
-class Bicycle extends Vehicle {
-    constructor(name, speed) {
-        super(speed);
-        this.name = name;
-    }
-
-    rideOurVehicle() {
-        super.ride();
-        console.log('Щоб він їхав, треба крутить педали')
-    }
-}
-
-class Car extends Vehicle {
-    constructor(name, speed) {
-        super(speed);
-        this.name = name;
-    }
-
-    stopCar() {
-        super.stop();
-        console.log('Двигун вимкнено')
-    }
-}
-
-const bicycle1 = new Bicycle('MTB', 25);
-const bicycle2 = new Bicycle('Road', 45)
-bicycle1.ride();
-bicycle1.rideOurVehicle();
-bicycle1.stop();
-bicycle2.ride();
-bicycle2.rideOurVehicle();
-bicycle2.stop();
-
-console.log('\n');
-
-const car1 = new Car('Ford Mustang', 333);
-const car2 = new Car('Volvo XC90', 170);
-car1.ride();
-car1.stop();
-car1.stopCar();
-car2.ride();
-car2.stop();
-car2.stopCar();
-car2.ride();
-car2.ride();
-car1.ride();
-
-console.log(car2.speed);
-console.log(car1.speed);
-console.log(bicycle2.name);
-console.log(bicycle1.name);
+// // Задача 1-1
+// class Animal {
+//     constructor(word) {
+//         this.word = word;
+//     }
+//
+//     say() {
+//         console.log(this.word);
+//     }
+// }
+//
+// const dog = new Animal('Woof!');
+// dog.say();
+//
+//
+// // Задача 1-2
+// class Car {
+//     constructor(model, speed) {
+//         this.model = model;
+//         this.speed = speed;
+//     }
+//
+//     ride() {
+//         let msg = this.speed > 0
+//             ? `${this.model} їде зі швидкістю ${this.speed} км/год`
+//             : `${this.model} готов їхати. Натисніть педаль газу.`;
+//         console.log(msg);
+//     }
+//
+//     stop() {
+//         this.speed = 0;
+//         console.log(`${this.model} зупинився. Швидкість ${this.speed} км/год`);
+//     }
+//
+//     gase() {
+//         this.speed += 10;
+//         console.log(`${this.model} їде зі швидкістю ${this.speed} км/год`);
+//     }
+//
+//     brake() {
+//         this.speed -= 10;
+//         if (this.speed > 0) {
+//             console.log(`${this.model} їде зі швидкістю ${this.speed} км/год`);
+//         } else {
+//             this.stop();
+//         }
+//     }
+// }
+//
+// const bmw = new Car('BMW', 75);
+// const ford = new Car('Ford', 35);
+//
+// ford.ride();
+// ford.gase();
+// ford.brake();
+// ford.brake();
+// ford.brake();
+// ford.brake();
+// ford.brake();
+// ford.ride();
+// ford.gase();
+// ford.gase();
+// ford.stop();
+//
+// bmw.ride();
+// bmw.gase();
+// bmw.brake();
+// bmw.brake();
+// bmw.brake();
+// bmw.brake();
+// bmw.brake();
+// bmw.ride();
+// bmw.gase();
+// bmw.gase();
+// bmw.stop();
+//
+//
+// // Задача 1-3
+// class TodoList {
+//     #todos = []
+//
+//     #show() {
+//         for (let i=1; i < this.#todos.length + 1; i++) {
+//             console.log(`${i}. ${this.#todos[i - 1]}`);
+//         }
+//     }
+//
+//     addTask(task) {
+//         this.#todos.push(task);
+//         this.#show();
+//     }
+//
+//     removeTask(task) {
+//         if (this.#todos.includes(task)) {
+//             let ind = this.#todos.indexOf(task);
+//             this.#todos.splice(ind, 1);
+//             this.#show();
+//         } else if (this.#todos) {
+//             console.log('Enter valid task name');
+//         } else {
+//             console.log('No task in queue');
+//         }
+//     }
+// }
+//
+// const td = new TodoList();
+// td.addTask('make homework');
+// td.addTask('eat dinner');
+// td.addTask('sleeping');
+// td.removeTask('eat dinner');
+// td.removeTask('make homework');
+// td.removeTask('sleeping');
+// td.removeTask('sleeping');
+//
+//
+// // Задача 2
+// class Vehicle {
+//     #vehicleSpeed;
+//     constructor(speed) {
+//         this.speed = speed;
+//         this.#vehicleSpeed = speed;
+//         this.name = '';
+//     }
+//
+//     ride() {
+//         if (!this.speed) {
+//             this.speed = this.#vehicleSpeed;
+//             console.log(`${this.name} розпочинає рух. Набор швидкості до ${this.speed} км/год.`);
+//         } else {
+//             console.log(`${this.name} їде за швидкістю ${this.speed} км/год.`);
+//         }
+//     }
+//
+//     stop() {
+//         this.speed = 0;
+//         console.log(`Стоїть. Швидкість ${this.speed} км/год.`)
+//     }
+// }
+//
+// class Bicycle extends Vehicle {
+//     constructor(name, speed) {
+//         super(speed);
+//         this.name = name;
+//     }
+//
+//     rideOurVehicle() {
+//         super.ride();
+//         console.log('Щоб він їхав, треба крутить педали')
+//     }
+// }
+//
+// class Car extends Vehicle {
+//     constructor(name, speed) {
+//         super(speed);
+//         this.name = name;
+//     }
+//
+//     stopCar() {
+//         super.stop();
+//         console.log('Двигун вимкнено')
+//     }
+// }
+//
+// const bicycle1 = new Bicycle('MTB', 25);
+// const bicycle2 = new Bicycle('Road', 45)
+// bicycle1.ride();
+// bicycle1.rideOurVehicle();
+// bicycle1.stop();
+// bicycle2.ride();
+// bicycle2.rideOurVehicle();
+// bicycle2.stop();
+//
+// console.log('\n');
+//
+// const car1 = new Car('Ford Mustang', 333);
+// const car2 = new Car('Volvo XC90', 170);
+// car1.ride();
+// car1.stop();
+// car1.stopCar();
+// car2.ride();
+// car2.stop();
+// car2.stopCar();
+// car2.ride();
+// car2.ride();
+// car1.ride();
+//
+// console.log(car2.speed);
+// console.log(car1.speed);
+// console.log(bicycle2.name);
+// console.log(bicycle1.name);
 
 
 // Задача 3
