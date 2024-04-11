@@ -83,22 +83,22 @@
 // }
 //
 // Object.defineProperty(dog, 'say', {enumerable: false});
-
-function Animal(voice) {
-    this.voice = voice;
-    this.say = () => {
-        console.log(this.voice);
-    }
-    Object.defineProperty(this, 'say', {enumerable: false});
-}
-
-const dog = new Animal("Woof!");
-dog.say();
-
-
-for (let property in dog) {
-    console.log(property);
-}
+//
+// function Animal(voice) {
+//     this.voice = voice;
+//     this.say = () => {
+//         console.log(this.voice);
+//     }
+//     Object.defineProperty(this, 'say', {enumerable: false});
+// }
+//
+// const dog = new Animal("Woof!");
+// dog.say();
+//
+//
+// for (let property in dog) {
+//     console.log(property);
+// }
 //
 //
 // // Задача 2
@@ -151,35 +151,3 @@ for (let property in dog) {
 // // let obj1 = cloneObj(actor, 'gender', 'age');
 // console.log(cloneObj(actor, 'gender', 'age'));
 //
-
-// Рекурсивна функцію, котра копіює об'єкт з вкладеними об'єктами і масивами і міксами з них. Звісно працює з деякими 
-// обмеженнями і часу в мене зараз небагато для рефакторінга, але працює... навіть трохи здивувався, коли вийшло.
-function cloneObj(obj) {
-    let tempObj = {};
-
-    for (let element in obj) {
-        if (Array.isArray(obj)) {
-            let newArr = [];
-            obj.forEach((item) => {
-                if (Array.isArray(item)) {
-                    newArr.push(cloneObj(item));
-                } else {
-                    newArr.push(item);
-                }
-            })
-            return newArr;
-        // Можливо замінити "obj[element] is
-        } else if (typeof obj[element] === 'string' || typeof obj[element] === 'number') {
-            tempObj[element] = obj[element];
-        } else {
-            tempObj[element] = cloneObj(obj[element]);
-        }
-    }
-    return tempObj;
-}
-
-const obj1 = {symbols: [23, 13, [5, 3], ['a', [-10, -20]]], country: {title: 'Ukraine', cities: {capital: 'Kiev', others: ['Dnipro', 'Kharkiv', 'Lviv']}}};
-
-const obj2 = cloneObj(obj1);
-console.log(obj1);
-console.log(obj2);
