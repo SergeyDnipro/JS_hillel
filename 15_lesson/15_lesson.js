@@ -64,7 +64,7 @@ function delay(fn, sec) {
     return delayedFunc;
 }
 
-const testDelay = delay(sayHi, 1);
+const testDelay = delay(sayHi, 5);
 
 sayHi();
 testDelay();
@@ -74,14 +74,11 @@ testDelay();
 // Задача 3
 class Timer {
     #objIntervalId;
-
     constructor() {
         this.timer = 0;
-
     }
 
     start() {
-        // console.log(++this.timer);
         clearInterval(this.#objIntervalId);
         this.#objIntervalId = setInterval(() => {
             console.log(++this.timer);
@@ -95,7 +92,7 @@ class Timer {
 
     pause() {
         clearInterval(this.#objIntervalId);
-        // так як "пауза" вмикається на 5-ій секунді, то цифра "5" не відібражається в консолі старта "старта". 
+        // так як "пауза" вмикається на 5-ій секунді, то цифра "5" не відібражається в консолі "старта". 
         // Тому її вивів окремо. 
         console.log(++this.timer);
         this.#objIntervalId = setInterval(() => {
