@@ -2,14 +2,14 @@
 
 
 // Задача 1-1
-const promise1 = new Promise((resolve, reject) => {
-    resolve('Hello world');
-});
-
-promise1.then((value) => {
-    console.log(value);
-});
-
+// const promise1 = new Promise((resolve, reject) => {
+//     resolve('Hello world');
+// });
+//
+// promise1.then((value) => {
+//     console.log(value);
+// });
+//
 
 Promise.resolve().then(() => {console.log("Hello World")});
 
@@ -36,7 +36,7 @@ const errorPromise = new Promise((resolve, reject) => {
     });
 });
 
-errorPromise.catch(console.log);
+errorPromise.catch(console.error);
 
 
 // Задача 1-4
