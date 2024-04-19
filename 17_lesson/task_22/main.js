@@ -1,17 +1,22 @@
 const inputField = document.querySelector(".input_field");
 const countLeft = document.querySelector(".count");
 const gamePad = document.querySelector(".rect");
+const gameStart = document.querySelector(".game_start");
 
 let startMouseYCoord = 0;
 let startGameXCoordFlag = false;
 let endGameXCoord = 0;
 
-// Стартові умови гри і координати 
+// Стартові умови гри і координати. Відлік починається, коли ігрок перетинає ліву межу ігрового поля. 
 function setStartCoords(e) {
-    if (!startMouseYCoord && !startGameXCoordFlag) {
-        startMouseYCoord = e.clientY;
+    if (!startGameXCoordFlag) {
         startGameXCoordFlag = e.clientX <= gamePad.offsetLeft + 2 && e.clientX >= gamePad.offsetLeft - 2;
-        endGameXCoord = e.clientX + 298;
+        endGameXCoord = gamePad.offsetLeft + 297;
+    } else {
+        gameStart.innerHTML = '...Go!'
+    }
+    if (!startMouseYCoord) {
+        startMouseYCoord = e.clientY;
     }
 }
 
@@ -20,6 +25,9 @@ function resetValuesOnStart() {
     countLeft.innerHTML = '(число з input)';
     inputField.value = null;
     gamePad.innerHTML = null;
+    gameStart.innerHTML = null;
+    startMouseYCoord = 0;
+    startGameXCoordFlag = false;
 }
 
 // Заповнення кількості спроб.
@@ -32,7 +40,7 @@ gamePad.addEventListener("mousemove", function (e) {
         setStartCoords(e);
         e.target.innerHTML = `X: ${e.clientX} Y: ${e.clientY}`;
         let differenceY = Math.abs(parseInt(startMouseYCoord) - parseInt(e.clientY));
-        
+
         if (differenceY) {
             countLeft.innerText -= 1;
             startMouseYCoord = e.clientY;
