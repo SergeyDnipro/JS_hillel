@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="calc">
+      <div class="inputs-container">
+        <label>
+          First value:
+          <input type="text" class="value1" />
+        </label>
+          <span id="operation" class="operation_class"></span>
+        <label>
+          Second value:
+          <input type="text" class="value2" />
+        </label>
+        <span class="operation_class">=</span>
+        <label>
+          Result:
+          <input type="text" class="result" />
+        </label>
+      </div>
+      <div class="buttons-container">
+        <button class="reset_button" id="reset">Reset</button>
+        <button id="add">+</button>
+        <button id="sub">-</button>
+        <button id="mul">x</button>
+        <button id="division">/</button>
+        <button id="result_button">=</button>
+      </div>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

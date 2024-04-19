@@ -120,3 +120,5 @@ cart.addItem('iPhone 13', 1000).addItem('Чашка', 10).addItem('iPhone 15 Pro
 cart.addItem('iPhone 13', 1000).removeItem('Чашка').removeItem('iPhone 13');
 cart.getAllItems();
 cart.calculateTotalPrice();
+
+let x1 = '123';
