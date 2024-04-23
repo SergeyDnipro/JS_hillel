@@ -96,7 +96,7 @@ function getPosts(result) {
             });
         });
 
-        // Обробник ховає поточний title та відібражає поле "input" для редагування.
+        // Обробник кліку по кнопці "Edit" ховає поточний title та відібражає поле "input" для редагування та кнопку "Save".
         editBtn.addEventListener("click", (e) => {
             h3.classList.toggle("show")
             h3.classList.toggle("hide")
@@ -117,7 +117,7 @@ function getPosts(result) {
     });
 
     // Створення об'єкта "пост". Обробка помилки при порожніх полях вводу. Очищення полів вводу після створення посту.
-    // Перезавантажує список постів.
+    // Перезавантаження списка постів.
     createBtn.addEventListener("click", (e) => {
         e.preventDefault();
         let newPost = {
@@ -126,7 +126,7 @@ function getPosts(result) {
             body: inputBody.value,
         };
 
-        if (newPost.title === '' || newPost.body === '') {
+        if (newPost.title === '' || newPost.body === '') { // Або використати !newPost.title?
             showError('Please fill all required fields')
         } else {
             fetch(BASE_URL, {
